@@ -1,0 +1,18 @@
+{
+  "name": "google_heat_map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "startApp": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "mongodb": "^2.0.49"
+  }
+}
