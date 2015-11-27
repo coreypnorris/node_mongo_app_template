@@ -2,7 +2,13 @@ doctype html
 html
 	head
 		meta(charset='utf-8')
-		title Hello World
-		script(type='text/javascript', src='/scripts/views/home.js')
+		title Template App
+		link(rel="stylesheet" type="text/css" href="/stylesheets/normalize.min.css")
+		link(rel="stylesheet" type="text/css" href="/stylesheets/views/home.css")
 	body
-		h1 Hello World
+		section.about
+			h1 Node/Mongo App Template
+			h2 A simple notes app with basic CRUD functions.
+		section.buttons
+		// button.create(type='button') Create
+		script(type='text/javascript', src='/scripts/views/home.js')

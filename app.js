@@ -14,7 +14,7 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   // NOTE: In Node.js, __dirname is always the directory in which the currently executing script resides.
-  res.render(__dirname + '/public/views/hello_world.jade',
+  res.render(__dirname + '/public/views/home.jade',
     { apiKey: process.env.api_key}
   )
 })
