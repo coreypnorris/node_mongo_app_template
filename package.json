@@ -1,5 +1,5 @@
 {
-  "name": "google_heat_map",
+  "name": "node_mongo_app_template",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "dotenv": "^1.2.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
