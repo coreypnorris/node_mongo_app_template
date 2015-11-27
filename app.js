@@ -2,16 +2,10 @@ var express = require('express');
 var app = express();
 var mongoClient = require('mongodb').MongoClient;
 
-mongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
+mongoClient.connect('mongodb://localhost:27017/node_mongo_app_template', function(err, db) {
   if (err) {
     throw err;
   }
-  db.collection('mammals').find().toArray(function(err, result) {
-    if (err) {
-      throw err;
-    }
-    console.log(result);
-  });
 });
 
 require('dotenv').load();
