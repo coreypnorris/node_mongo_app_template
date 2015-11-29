@@ -21,6 +21,12 @@ app.get('/', function (req, res) {
   )
 })
 
+app.get('/notes/new', function (req, res) {
+  res.render(__dirname + '/public/views/notes/new.jade',
+    { apiKey: process.env.api_key}
+  )
+})
+
 app.post('/notes', function (req, res) {
   var newNote = new noteModel();
   newNote.body = req.body.body;
