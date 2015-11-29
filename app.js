@@ -15,16 +15,17 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res) {
-  // NOTE: In Node.js, __dirname is always the directory in which the currently executing script resides.
-  res.render(__dirname + '/public/views/home.jade',
-    { apiKey: process.env.api_key}
-  )
+  noteModel.find({}, function(err, notes) {
+    if (err) throw err;
+    // NOTE: In Node.js, __dirname is always the directory in which the currently executing script resides.
+    res.render(__dirname + '/public/views/home.jade',
+      { notesToRender: notes}
+    )
+  });
 })
 
 app.get('/notes/new', function (req, res) {
-  res.render(__dirname + '/public/views/notes/new.jade',
-    { apiKey: process.env.api_key}
-  )
+  res.render(__dirname + '/public/views/notes/new.jade')
 })
 
 app.post('/notes', function (req, res) {
@@ -37,7 +38,8 @@ app.post('/notes', function (req, res) {
   });
 })
 
-var server = app.listen(3000, function () {
+var server = app.listen(3000, function (err) {
+  if (err) throw err;
   var host = server.address().address;
   var port = server.address().port;
 

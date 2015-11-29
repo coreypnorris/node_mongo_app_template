@@ -8,3 +8,7 @@ block content
     h1 Node/Mongo App Template
     h2 A simple notes app with basic CRUD functions
     a(href='/notes/new') Create New Note
+  section.notes-to-render    
+    ul
+      each value, key in notesToRender
+       l= key + ": " + value.body

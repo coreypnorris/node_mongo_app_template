@@ -5,3 +5,6 @@ block append head
 
 block content
   h1 Create New Note
+  form(action='/notes', method="post")
+      textarea.note-body(name='body', rows='5', cols='50')
+      input.submit(type='submit', value='Submit')

@@ -1,3 +1,12 @@
 div#content {
 	text-align: center;
 }
+
+textarea.note-body {
+	margin: 0 0 15px 0;
+}
+
+input.submit {
+	display: block;
+    margin: auto;
+}
