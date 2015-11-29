@@ -1,13 +1,10 @@
-doctype html
-html
-	head
-		meta(charset='utf-8')
-		title Template App
-		link(rel="stylesheet" type="text/css" href="/stylesheets/normalize.min.css")
-		link(rel="stylesheet" type="text/css" href="/stylesheets/views/home.css")
-	body
-		section.about
-			h1 Node/Mongo App Template
-			h2 A simple notes app with basic CRUD functions
-			a(href='/notes/new') Create New Note
-	script(type='text/javascript', src='/scripts/views/home.js')
+extends layout
+  
+block append head
+  link(rel="stylesheet" type="text/css" href="/stylesheets/views/home.css")
+
+block content
+  section.about
+    h1 Node/Mongo App Template
+    h2 A simple notes app with basic CRUD functions
+    a(href='/notes/new') Create New Note
