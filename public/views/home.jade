@@ -1,14 +1,18 @@
 extends layout
   
 block append head
-  link(rel="stylesheet" type="text/css" href="/stylesheets/views/home.css")
+  link(rel='stylesheet' type='text/css' href='/stylesheets/views/home.css')
 block content
   section.about
     h1 Node/Mongo App Template
     h2 A simple notes app with basic CRUD functions
     a(href='/notes/new') Create New Note
   section.notes-to-render
+    if deletedNote
+      h3 deletedNote.body + ' deleted'
     ul
-      each value, key in notesToRender
-       if value.body
-         li= value.body
+      if notesToRender
+        each value, key in notesToRender
+            li= value.body
+            p= 'Created on ' + value.createdAt
+            a(href="/notes/delete/#{value.id}", data-method='delete') Delete

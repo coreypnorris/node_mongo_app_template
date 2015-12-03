@@ -1,10 +1,10 @@
 extends ..\layout
 
 block append head
-  link(rel="stylesheet" type="text/css" href="/stylesheets/views/notes/new.css")
+  link(rel='stylesheet' type='text/css' href='/stylesheets/views/notes/new.css')
 
 block content
   h1 Create New Note
-  form(action='/notes', method="post")
+  form(action='/notes', method='post')
       textarea.note-body(name='body', rows='5', cols='50')
       input.submit(type='submit', value='Submit')
