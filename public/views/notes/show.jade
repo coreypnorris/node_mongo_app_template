@@ -1,0 +1,10 @@
+extends ..\layout
+
+block append head
+
+block content
+  if noteToRender
+      p Id: #{noteToRender.id}
+      p Created on #{noteToRender.createdAt}
+      hr
+      p #{noteToRender.body}

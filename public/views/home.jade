@@ -12,7 +12,7 @@ block content
       h3 Note #{deletedNote.id} has been deleted.
     ul
       if notesToRender
-        each value, key in notesToRender
-            li= value.body
-            p= 'Created on ' + value.createdAt
-            a(href="/notes/delete/#{value.id}", data-method='delete') Delete
+        each note, key in notesToRender
+            li= note.body
+            a(href="/notes/show/#{note.id}") Show
+            // a(href="/notes/delete/#{note.id}", data-method='delete') Delete

@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'jade');
 app.use(express.static('public'));
 
+// Index
 app.get('/', function (req, res) {
   noteModel.find({}, function(err, notes) {
     if (err) res.send(err);
@@ -25,10 +26,12 @@ app.get('/', function (req, res) {
   });
 });
 
+// New
 app.get('/notes/new', function (req, res) {
   res.render(__dirname + '/public/views/notes/new.jade')
 });
 
+// Create
 app.post('/notes', function (req, res) {
   var newNote = new noteModel();
   newNote.body = req.body.body;
@@ -38,7 +41,22 @@ app.post('/notes', function (req, res) {
   });
 });
 
-app.get('/notes/delete/:id', function (req, res) {
+// Show
+app.get('/notes/show/:id', function (req, res, next) {
+  noteModel.findById(req.params.id, function(err, noteToRender) {
+    if (err) return next(err)
+    res.render(__dirname + '/public/views/notes/show.jade',
+      { noteToRender: noteToRender }
+    )
+  });
+});
+
+// Edit
+
+// Update
+
+// Delete
+app.delete('/notes/delete/:id', function (req, res) {
   noteModel.findByIdAndRemove(req.params.id, req.body, function (err, deletedNote) {
     if (err) res.send(err);
     noteModel.find({}, function(err, notesToRender) {
