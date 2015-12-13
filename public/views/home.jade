@@ -9,7 +9,7 @@ block content
     a(href='/notes/new') Create New Note
   section.notes-to-render
     if deletedNote
-      h3 deletedNote.body + ' deleted'
+      h3 Note #{deletedNote.id} has been deleted.
     ul
       if notesToRender
         each value, key in notesToRender
