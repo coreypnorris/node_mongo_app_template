@@ -68,8 +68,11 @@ app.post('/notes/update/:id', function (req, res) {
     noteToUpdate.body = req.body.body;
     noteToUpdate.save(function(err) {
       if (err) res.send(err);
-      res.render(__dirname + '/public/views/notes/show.jade',
-        { noteToRender: noteToUpdate }
+    });
+    noteModel.findById(req.params.id, function(err, noteToRender) {
+    if (err) res.send(err);
+    res.render(__dirname + '/public/views/notes/show.jade',
+        { noteToRender: noteToRender }
       )
     });
   });
