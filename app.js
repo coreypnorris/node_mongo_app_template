@@ -56,7 +56,7 @@ app.get('/notes/show/:id', function (req, res, next) {
 // Update
 
 // Delete
-app.delete('/notes/delete/:id', function (req, res) {
+app.post('/notes/delete/:id', function (req, res) {
   noteModel.findByIdAndRemove(req.params.id, req.body, function (err, deletedNote) {
     if (err) res.send(err);
     noteModel.find({}, function(err, notesToRender) {

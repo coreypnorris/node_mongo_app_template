@@ -8,3 +8,6 @@ block content
       p Created on #{noteToRender.createdAt}
       hr
       p #{noteToRender.body}
+      hr
+      form(action='/notes/delete/#{noteToRender.id}', method='post')
+        input(type='submit', value='Delete')
