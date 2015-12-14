@@ -1,4 +1,8 @@
-#content {
+.header {
+	padding: 1% 1% 0 1%;
+}
+
+.content {
 	padding: 1%;
 }
 
