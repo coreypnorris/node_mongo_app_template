@@ -12,6 +12,6 @@ block content
       h3 Note #{deletedNote.id} has been deleted.
     ul
       if notesToRender
-        each note, key in notesToRender
-            li= note.body
-            a(href="/notes/show/#{note.id}") Show
+        each noteToRender, key in notesToRender
+          li= noteToRender.body
+          a(href="/notes/show/#{noteToRender.id}") Show

@@ -9,5 +9,7 @@ block content
       hr
       p #{noteToRender.body}
       hr
+      p
+        a(href="/notes/edit/#{noteToRender.id}") Edit
       form(action='/notes/delete/#{noteToRender.id}', method='post')
         input(type='submit', value='Delete')

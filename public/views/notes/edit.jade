@@ -1,0 +1,10 @@
+extends ..\layout
+
+block append head
+
+block content
+  h1 Edit Note
+  if noteToRender
+    form(action='/notes/update/#{noteToRender.id}', method='post')
+        textarea.note-body(name='body', rows='5', cols='50') #{noteToRender.body}
+        input.submit(type='submit', value='Save')

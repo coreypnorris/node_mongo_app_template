@@ -52,8 +52,28 @@ app.get('/notes/show/:id', function (req, res, next) {
 });
 
 // Edit
+app.get('/notes/edit/:id', function (req, res, next) {
+  noteModel.findById(req.params.id, function(err, noteToRender) {
+    if (err) return next(err)
+    res.render(__dirname + '/public/views/notes/edit.jade',
+      { noteToRender: noteToRender }
+    )
+  });
+});
 
 // Update
+app.post('/notes/update/:id', function (req, res) {
+  noteModel.findById(req.params.id, req.body, function (err, noteToUpdate) {
+    if (err) res.send(err);
+    noteToUpdate.body = req.body.body;
+    noteToUpdate.save(function(err) {
+      if (err) res.send(err);
+      res.render(__dirname + '/public/views/notes/show.jade',
+        { noteToRender: noteToUpdate }
+      )
+    });
+  });
+});
 
 // Delete
 app.post('/notes/delete/:id', function (req, res) {
